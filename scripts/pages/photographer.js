@@ -2,12 +2,19 @@
 const urlParams = new URLSearchParams(window.location.search);
 let id = urlParams.get("id");
 
+// Afficher le loader au début
+const loader = document.getElementById("loader");
+loader.style.display = "flex";
+
 // get data
 const initPhotographPage = () => {
   fetch("../../data/photographers.json").then((response) =>
     response.json().then((data) => {
-      const filteredPhtograph = data.photographers.filter((p) => p.id == id)[0];
-      buildHeader(filteredPhtograph);
+
+      loader.style.display = "none";
+
+      const filteredPhotograph = data.photographers.filter((p) => p.id == id)[0];
+      buildHeader(filteredPhotograph);
       createSort();
 
       const photographerMedia = data.media.filter(
@@ -29,8 +36,8 @@ const initPhotographPage = () => {
         });
 
       displayMedia(photographerMedia, "popularity");
-      displayForm(filteredPhtograph.name);
-      buildBottomCard(photographerMedia, filteredPhtograph);
+      displayForm(filteredPhotograph.name);
+      buildBottomCard(photographerMedia, filteredPhotograph);
       checkForm();
       AddClickHeart();
 
