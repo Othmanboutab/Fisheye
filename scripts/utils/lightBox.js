@@ -38,7 +38,6 @@ const lightboxShow = () => {
       modalLightBox.setAttribute("aria-hidden", "false");
 
       currentSlide(i + 1);
-
       // disable tabindex for other divs outside form
       document.querySelector("header a").setAttribute("tabIndex", "-1"); //disable tabindex logo
       document.querySelector(".photograph-name").setAttribute("tabIndex", "-1"); //disable tabindex photogaph name header

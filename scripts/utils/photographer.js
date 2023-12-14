@@ -69,12 +69,12 @@ const displayMedia = async (mediasphotographer, filterBy) => {
   });
 };
 
-const buildCard = (data) => {
+function buildCard(data) {
   const { title, video, image, photographerId, likes } = data;
 
   const container = document.createElement("div");
   let mediasCard = "";
-  mediasCard += `<a href="#" class="media_link" onclick="openLightBox()" id="media_link"role="button" aria-label="${title}" tabindex="0">
+  mediasCard += `<a href="#" class="media_link"  id="media_link"role="button" aria-label="${title}" tabindex="0">
     `;
   if (video !== undefined) {
     mediasCard += `<video class="card_video medias_all" aria-label="${title}" controls>
